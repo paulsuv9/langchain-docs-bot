@@ -1,0 +1,14 @@
+# LangGraph: Simple ReAct Agent Architecture
+
+ReAct Loop: The agent iterates between Thought/Action (via the LLM) and Observation (via a Tool) until a final answer is generated.
+
+Graph Structure (Nodes & Edges):
+
+1. START -> LLM Node (Initial step)
+2. LLM Node -> Conditional Edge ('should_continue' function)
+3. Conditional Edge branches to:
+    * Tool Node (if the LLM decides to call a tool)
+    * END (if the LLM generates a final answer)
+4. Tool Node -> LLM Node (The tool output is added to state, looping back to the LLM for the next thought/action)
+
+The Conditional Edge is the Key: It inspects the last message in the state. If the message contains a tool call, it routes to the Tool Node; otherwise, it routes to END.

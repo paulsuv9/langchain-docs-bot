@@ -1,0 +1,12 @@
+# RAG Concept: Retrieval-Augmented Generation
+
+Process Flow:
+
+1. Loading: Use a Document Loader to ingest data (e.g., PDFs).
+2. Splitting: Use a Text Splitter to break large documents into smaller, meaningful chunks.
+3. Embedding: An Embedding Model converts text chunks into numerical vectors.
+4. Indexing: The vectors are stored in a Vector Store (e.g., FAISS, Chroma) for fast search.
+5. Retrieval: A Retriever finds the top-K most similar document chunks to the user query.
+6. Generation: The retrieved chunks are passed to the LLM as context (along with the original query) for generating the final answer.
+
+Purpose: Overcome the LLM's knowledge cut-off and reduce hallucinations by grounding answers in private/current data.

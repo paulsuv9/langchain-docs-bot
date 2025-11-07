@@ -1,0 +1,21 @@
+# LangChain Expression Language (LCEL): Composition
+
+Goal: Chain a Prompt Template and a Model using the pipe operator.
+
+Key Operator: The pipe operator `|` chains components. The output of the left is the input to the right.
+
+Code Snippet (Python):
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chat_models import init_chat_model
+
+# 1. Define Components
+prompt = ChatPromptTemplate.from_template("Tell me a short joke about {topic}.")
+model = init_chat_model("claude-sonnet-4-5-20250929")
+
+# 2. Create the Chain
+chain = prompt | model
+
+# 3. Invoke the Chain
+response = chain.invoke({"topic": "AI agents"})
+
+Core Benefits: Streaming, Async support, Optimized parallelism, and Debugging in LangSmith are automatic with LCEL chains.

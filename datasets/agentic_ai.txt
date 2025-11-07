@@ -1,0 +1,5 @@
+Agentic AI refers to systems that exhibit autonomous decision-making, goal-setting, and self-directed behavior. These systems go beyond reactive responses and demonstrate proactive reasoning, often using techniques like ReAct and Chain-of-Thought prompting.
+
+RAG (Retrieval-Augmented Generation) architecture combines a retriever that fetches relevant documents with a generator that produces answers based on those documents. It enhances factual accuracy and domain specificity.
+
+Python/Flask integration allows developers to wrap their RAG assistant into a lightweight web app. Flask routes can handle user queries, pass them to the LangChain pipeline, and return responses in real time.

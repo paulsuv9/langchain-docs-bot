@@ -1,0 +1,20 @@
+# LangChain Quickstart: Simple LLM Call
+
+Goal: Invoke a chat model with a single message.
+
+Key Component: The `init_chat_model` utility is the standard way to configure and instantiate a chat model from providers like OpenAI, Anthropic, or Google.
+
+Code Snippet (Python):
+from langchain.chat_models import init_chat_model
+from langchain.messages import HumanMessage
+
+# 1. Initialize the model 
+model = init_chat_model(
+    "claude-sonnet-4-5-20250929",
+    temperature=0
+)
+
+# 2. Invoke the model with a list of messages
+response = model.invoke([HumanMessage(content="What is the capital of France?")])
+
+# Result: 'Paris'

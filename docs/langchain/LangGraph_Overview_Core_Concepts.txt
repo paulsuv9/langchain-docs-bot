@@ -1,0 +1,14 @@
+# LangGraph Overview: State-Based Agent Orchestration
+
+LangGraph is built on the concept of modeling agent execution as a directed graph.
+
+Core Components:
+
+* State: A shared data structure (often a TypedDict) that represents the current snapshot of your application and is updated by nodes.
+* Node: A Python function that takes the current 'state', performs a task (e.g., calling an LLM), and returns an 'update' to the state.
+* Edge: Defines the transition logic between nodes.
+    * Normal Edge: Unconditional transition.
+    * Conditional Edge: Calls a function to determine the next node based on the current 'state'.
+* StateGraph: The main class used to build and compile the workflow.
+
+Benefit: Enables durable execution (saving state), streaming, interrupts, and time-travel debugging.
